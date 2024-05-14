@@ -1,0 +1,51 @@
+:root{  
+    --font-size:  16px;
+    --primary-font: 'brandon_grotesqueregular', sans-serif;    
+    --blue-color : #009FE4;
+    --gray-color: #b1b1b1;
+}
+
+body{
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale; 
+    font-family: var(--primary-font);
+    font-size: var(--font-size);
+    line-height: 29px;
+    margin: 0px;
+    padding: 0px;
+    color: #000;
+}
+
+
+.acare-container{
+	background: linear-gradient(90deg, #009FE4,  #27CFCA);	
+	height:100vh;
+	display: flex;
+	align-items:center;
+	justify-content: center;
+}
+
+p{
+	font-family: Georgia, serif;
+}
+
+p b{
+	font-family: 'brandon_grotesquebold';
+	font-size: 19px;
+}
+
+.input-user, .input-pass{
+	border:1px var(--gray-color) solid;
+	border-radius: 15px;
+	padding:10px 10px 10px 40px;
+	width:100%;
+}
+
+.input-user{
+	background:url(../images/user.svg) no-repeat 10px center / 20px;
+}
+
+.input-pass{
+	background:url(../images/pass.svg) no-repeat 10px center / 20px;
+}

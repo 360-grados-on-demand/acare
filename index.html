@@ -4,30 +4,67 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Acare</title>
+	<link rel="stylesheet" type="text/css" href="fonts/stylesheet.css">
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="css/helpers.css">
+	<link rel="stylesheet" type="text/css" href="css/global.css">
 </head>
-<body>
-	<div class="acare-container">
+<body ng-app="acare">
+	<div class="acare-container" ng-controller="mainController as vm">
 		<div class="container">
-			<div class="row">
-				<div class="col col-12 text-center">				
-					<h1>ACARE</h1>						
-				</div>
-				<div class="col col-12 col-lg-6 col-lg-offset-3">
-					<div class="shadow">
-						<form>
-						  <div class="form-group">
-						    <label for="alias">Nombre (Alias)</label>
-						    <input type="text" class="form-control" id="alias" aria-describedby="" placeholder="Ingresa tu alias">
-						    <small id="aliasHelp" class="form-text text-muted">¡Ingresa tu alias para jugar!</small>
-						  </div>						  
-						  <button type="submit" class="btn btn-primary">Entrar</button>
-						</form>
+			<div class="row">				
+				<div class="col col-12 col-lg-6 offset-lg-3">
+					<div class="bg-white p-5" ng-if="vm.step == 0">
+						<h1 class="text-blue">BIENVENIDO</h1>						
+						<p>Bienvenido a <b class="text-blue">reto a:care.</b> En este sitio encontrarás artículos, videos, trivias y materiales descargables que te darán información relevante acerca de la adherencia y los distintos factores que se relacionan con ella.</p>
+						<p>
+							<b class="text-blue">Genera un nombre de usuario y una contraseña, y accede gratis</b> a esta plataforma interactiva que te ayudará a convertirte en un experto en adherencia. 
+						</p>
+						<a class="btn bg-blue text-white" ng-click="vm.step = 1">SIGUIENTE</a>
 					</div>				
+
+					<div class="bg-white p-5" ng-if="vm.step == 1">
+						<div class="text-center my-3">
+							<img src="images/logo-abbott.svg" width="150px" height="70px" alt="Logo abbott" />
+							<div class="form-group my-3">
+							    <input type="text" name="usuario" class="input-user" placeholder="Usuario" />
+							</div>
+							<div class="form-group my-3">
+								<input type="pass" name="pass" class="input-pass" placeholder="Contraseña"/>
+							</div>
+							<a class="btn bg-blue text-white w-100 py-2 my-3">INICIAR SESIÓN</a>
+							<p class="text-center">
+								<a class="text-blue cursor-pointer" ng-click="vm.step = 2"><b>Crear usuario</b></a>
+							</p>
+						</div>
+					</div>				
+
+					<div class="bg-white p-5" ng-if="vm.step == 2">
+						<div class="text-center my-3">
+							<img src="images/logo-abbott.svg" width="150px" height="70px" alt="Logo abbott" />
+							<p class="text-gray">Es importante recordar tu usuario y contraseña para que puedas iniciar sesión</p>
+							<div class="form-group my-3">
+							    <input type="text" name="usuario" class="input-user" placeholder="Usuario" />
+							</div>
+							<div class="form-group my-3">
+								<input type="pass" name="pass" class="input-pass" placeholder="Contraseña"/>
+							</div>
+
+							<div class="form-group my-3">
+								<input type="pass" name="pass" class="input-pass" placeholder="Confirmar Contraseña"/>
+							</div>
+							<a class="btn bg-blue text-white w-100 py-2 my-3">REGISTRARME</a>
+							<p class="text-center">
+								<a class="text-blue cursor-pointer" ng-click="vm.step = 1"><b>Iniciar sesión</b></a>
+							</p>
+						</div>
+					</div>				
+
 				</div>
 			</div>
 		</div>
 	</div>
 </body>
+<script type="text/javascript" src="js/angular.min.js"></script>
+<script type="text/javascript" src="js/main.js"></script>
 </html>
