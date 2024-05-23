@@ -24,6 +24,14 @@
 	color:#757575;
 }
 
+.text-red{
+	color:red;
+}
+
+.text-left{
+	text-align: left;
+}
+
 a.btn{
 	font-family: 'brandon_grotesquebold';
 	border-radius: 30px;
@@ -32,4 +40,17 @@ a.btn{
 
 .cursor-pointer{
 	cursor: pointer;
+}
+
+.user-actions{
+	position: absolute;
+	right:15px;
+	top:15px;
+}
+
+.help{
+	cursor: pointer;
+	position: absolute;
+    right: 15px;
+    bottom: 37px;
 }
