@@ -6,11 +6,11 @@
       var vm = this;
       vm.user = {usuario : '', pass: ''};
       vm.registroFields = {usuario : '', pass: '', pass_confirm : ''};
-      vm.step = 1; /*{1:login,2:registro:3:hospital,4:registro_exitoso}*/
+      vm.step = 0; /*{1:login,2:registro:3:hospital,4:registro_exitoso}*/
       vm.level = 0;
       vm.current_user = null;
       vm.label_registro = "REGISTRARME"; 
-      vm.showHelp = false;     
+      vm.showHelp = true;     
       vm.error = {
         msg : '',
         error : false
@@ -23,7 +23,7 @@
         if(vm.validaCampoLogin()){                    
           $http({
             method : 'POST',
-            url    : 'https://acare.360grados-ondemand.com/api/iniciar_sesion.php',
+            url    : 'http://localhost/acare/api/iniciar_sesion.php',
             data : $.param({              
               nombre: vm.user.usuario,
               pass: vm.user.pass,
@@ -77,7 +77,7 @@
         if(vm.validaCampo()){          
           $http({
             method : 'POST',
-            url    : 'https://acare.360grados-ondemand.com/api/crear_usuario.php',
+            url    : 'http://localhost/acare/api/crear_usuario.php',
             data : $.param({              
               nombre: vm.registroFields.usuario,
               pass: vm.registroFields.pass,

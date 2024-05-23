@@ -1,9 +1,9 @@
 <?php  
-$usuario = "ramdrn";
-$contraseña = "Acare#23";
+$usuario = "root";
+$contraseña = "";
 const NOMBRE_BASE_DE_DATOS = "acare";
 try {
-    $base_de_datos = new PDO('mysql:host=gibbings.iad1-mysql-e2-16a.dreamhost.com;dbname=' . NOMBRE_BASE_DE_DATOS, $usuario, $contraseña);
+    $base_de_datos = new PDO('mysql:host=localhost;dbname=' . NOMBRE_BASE_DE_DATOS, $usuario, $contraseña);
     $base_de_datos->query("set names utf8;");
 	$base_de_datos->setAttribute( PDO::ATTR_EMULATE_PREPARES, FALSE );
 	$base_de_datos->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
