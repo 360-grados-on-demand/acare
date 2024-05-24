@@ -20,6 +20,10 @@
 	color:var(--blue-color);
 }
 
+.text-blue2{
+	color:var(--blue-color2);
+}
+
 .text-gray{
 	color:#757575;
 }
@@ -53,4 +57,24 @@ a.btn{
 	position: absolute;
     right: 15px;
     bottom: 37px;
+}
+
+.small-text, .small-text *{
+	font-size:10pt;
+	line-height: 12pt;
+	word-break: break-all;
+}
+
+.close-btn{
+	cursor: pointer;
+	width:49px;
+	height:49px;
+	position: absolute;
+	right:-20px;
+	top:-20px;
+	background:url(../images/close.svg) no-repeat center center / 49px 49px;
+}
+
+.uppercase{
+	text-transform: uppercase;
 }

@@ -8,6 +8,7 @@
       vm.registroFields = {usuario : '', pass: '', pass_confirm : ''};
       vm.step = 0; /*{1:login,2:registro:3:hospital,4:registro_exitoso}*/
       vm.level = 0;
+      vm.subLevel = 0;
       vm.current_user = null;
       vm.label_registro = "REGISTRARME"; 
       vm.showHelp = true;     
