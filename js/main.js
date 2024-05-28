@@ -118,8 +118,29 @@
         }
       }
 
+      vm.quiz1 = function(){
+        vm.aciertos_1 = 0;
+        if(vm.current_user.q_1 == 'a'){
+          vm.aciertos_1++;
+        }
+        if(vm.current_user.q_2 == 'a'){
+          vm.aciertos_1++;
+        }
+        if(vm.current_user.q_3 == 'b'){
+          vm.aciertos_1++;
+        }
+        if(vm.current_user.q_4 == 'b'){
+          vm.aciertos_1++;
+        }
+        if(vm.current_user.q_5 == 'c'){
+          vm.aciertos_1++;
+        }
+        vm.subLevel = 7;
+      }
+
       vm.showLevel = function(l){
         vm.level = l;
+        console.log(vm);
       }
 
     })

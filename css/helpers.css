@@ -32,6 +32,10 @@
 	color:red;
 }
 
+.text-black{
+	color:#000;
+}
+
 .text-left{
 	text-align: left;
 }
@@ -77,4 +81,12 @@ a.btn{
 
 .uppercase{
 	text-transform: uppercase;
+}
+
+.question{
+	line-height: 25px;
+}
+
+.question input[type='radio']{
+	accent-color:var(--blue-color);
 }

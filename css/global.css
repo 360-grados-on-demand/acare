@@ -1695,13 +1695,13 @@ p b{
 
 
   .acare-container .current-level{
-    max-height: 80vh;
+    max-height: 86vh;
     overflow: auto;
     padding: 5px;
   }
 
   .acare-container .current-level.instrucciones{
-    max-height: 85vh;
+    max-height: 86vh;
     overflow: auto;
     display: block;
     width: calc(100% - 10px);
