@@ -81,15 +81,6 @@ p b{
   padding:15px;
 }  
 
-.acare-container .current-level.instrucciones{
-  position: absolute;
-  top:0px;
-  left:0px;
-  width:60%;    
-  left:20%;
-  padding:50px 0px;
-}
-
 .acare-container .current-level .content{
   width:100%;
 }
@@ -1406,7 +1397,7 @@ p b{
       }
 
       .level1 .cls-34 {
-        clip-path: url(#clippath);
+        clip-path: url(#level1-clippath);
       }
 
       .level1 .cls-5 {
@@ -1433,51 +1424,40 @@ p b{
         fill: #e73b44;
       }
 
-      .level1 .cls-35 {
-        font-family: BrandonGrotesque-Black, 'Brandon Grotesque';
-        font-size: 22.level1 .96px;
-        font-weight: 800;
-        letter-spacing: 0em;
-      }
-
-      .level1 .cls-35, .level1 .cls-28 {
-        fill: #fff;
-      }
-
       .level1 .cls-11 {
         fill: #91a9b2;
       }
 
+      .level1 .cls-35 {
+        clip-path: url(#level1-clippath-1);
+      }
+
       .level1 .cls-36 {
-        clip-path: url(#clippath-1);
+        clip-path: url(#level1-clippath-4);
       }
 
       .level1 .cls-37 {
-        clip-path: url(#clippath-4);
+        clip-path: url(#level1-clippath-3);
       }
 
       .level1 .cls-38 {
-        clip-path: url(#clippath-3);
+        clip-path: url(#level1-clippath-2);
       }
 
       .level1 .cls-39 {
-        clip-path: url(#clippath-2);
+        clip-path: url(#level1-clippath-7);
       }
 
       .level1 .cls-40 {
-        clip-path: url(#clippath-7);
+        clip-path: url(#level1-clippath-6);
       }
 
       .level1 .cls-41 {
-        clip-path: url(#clippath-6);
+        clip-path: url(#level1-clippath-5);
       }
 
       .level1 .cls-42 {
-        clip-path: url(#clippath-5);
-      }
-
-      .level1 .cls-43 {
-        clip-path: url(#clippath-9);
+        clip-path: url(#level1-clippath-9);
       }
 
       .level1 .cls-12 {
@@ -1492,79 +1472,79 @@ p b{
         fill: #61737a;
       }
 
+      .level1 .cls-43 {
+        clip-path: url(#level1-clippath-20);
+      }
+
       .level1 .cls-44 {
-        clip-path: url(#clippath-20);
+        clip-path: url(#level1-clippath-21);
       }
 
       .level1 .cls-45 {
-        clip-path: url(#clippath-21);
+        clip-path: url(#level1-clippath-24);
       }
 
       .level1 .cls-46 {
-        clip-path: url(#clippath-24);
+        clip-path: url(#level1-clippath-23);
       }
 
       .level1 .cls-47 {
-        clip-path: url(#clippath-23);
+        clip-path: url(#level1-clippath-22);
       }
 
       .level1 .cls-48 {
-        clip-path: url(#clippath-22);
+        clip-path: url(#level1-clippath-25);
       }
 
       .level1 .cls-49 {
-        clip-path: url(#clippath-25);
+        clip-path: url(#level1-clippath-27);
       }
 
       .level1 .cls-50 {
-        clip-path: url(#clippath-27);
+        clip-path: url(#level1-clippath-26);
       }
 
       .level1 .cls-51 {
-        clip-path: url(#clippath-26);
+        clip-path: url(#level1-clippath-29);
       }
 
       .level1 .cls-52 {
-        clip-path: url(#clippath-29);
+        clip-path: url(#level1-clippath-35);
       }
 
       .level1 .cls-53 {
-        clip-path: url(#clippath-35);
+        clip-path: url(#level1-clippath-32);
       }
 
       .level1 .cls-54 {
-        clip-path: url(#clippath-32);
+        clip-path: url(#level1-clippath-30);
       }
 
       .level1 .cls-55 {
-        clip-path: url(#clippath-30);
+        clip-path: url(#level1-clippath-13);
       }
 
       .level1 .cls-56 {
-        clip-path: url(#clippath-13);
+        clip-path: url(#level1-clippath-12);
       }
 
       .level1 .cls-57 {
-        clip-path: url(#clippath-12);
+        clip-path: url(#level1-clippath-10);
       }
 
       .level1 .cls-58 {
-        clip-path: url(#clippath-10);
+        clip-path: url(#level1-clippath-15);
       }
 
       .level1 .cls-59 {
-        clip-path: url(#clippath-15);
-      }
-
-      .level1 .cls-60 {
-        clip-path: url(#clippath-17);
+        clip-path: url(#level1-clippath-17);
       }
 
       .level1 .cls-15 {
         fill: #e4042c;
       }
 
-      .level1 .cls-61, .level1 .cls-22 {
+      .level1 .cls-60, .level1 .cls-22 {
         fill: #cfeaf6;
       }
 
@@ -1612,6 +1592,10 @@ p b{
         fill: #dfdada;
       }
 
+      .level1 .cls-28 {
+        fill: #fff;
+      }
+
       .level1 .cls-29 {
         fill: #adbcda;
       }
@@ -1626,15 +1610,17 @@ p b{
 
       .level1 .cls-32 {
         fill: #2ea944;
-      }  
+      } 
 
 .opt-level:hover{
   cursor: pointer;
   transition: all .5s ease-out;
 }
-.opt-level:hover .cls-24{    
+.opt-level:hover .cls-24, .opt-level.visited .cls-24{    
   fill:#009D00;    
   stroke-width: 5px;
+  -webkit-filter: drop-shadow( 0px 0px 5px #009D00);
+  filter: drop-shadow( 0px 0px 5px #009D00);
 }
 
 .current-level .content h2{
@@ -1708,4 +1694,11 @@ p b{
     left: 5px;
     padding: 5px;
   }  
+}
+
+@media all and (max-width: 480px){
+  .acare-container .current-level.instrucciones{
+    max-height: 99vh;
+  }
+
 }

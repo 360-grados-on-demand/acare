@@ -40,6 +40,10 @@
 	text-align: left;
 }
 
+.primary-font{
+	font-family: var(--primary-font);
+}
+
 a.btn{
 	font-family: 'brandon_grotesquebold';
 	border-radius: 30px;
@@ -50,10 +54,13 @@ a.btn{
 	cursor: pointer;
 }
 
-.user-actions{
-	position: absolute;
-	right:15px;
-	top:15px;
+.user-actions {
+    position: absolute;
+    right: 15px;
+    top: 15px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
 
 .help{
@@ -89,4 +96,14 @@ a.btn{
 
 .question input[type='radio']{
 	accent-color:var(--blue-color);
+}
+
+.hospital .level .color, .hospital .level:hover .gray{
+	opacity: 0;
+	transition: opacity .5s ease-out;
+}
+
+.hospital .level .gray, .hospital .level:hover .color{
+	opacity: 1;
+	transition: opacity .5s ease-out;
 }

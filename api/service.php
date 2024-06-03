@@ -51,4 +51,20 @@ function comprobar_datos($nombre, $pass)
 
 }
 
+function save_view($id, $view)
+{
+    global $base_de_datos;
+    $id = strtolower($id);
+    $sentencia = $base_de_datos->prepare('UPDATE usuarios SET v_'.$view.' = true WHERE id = ?');    
+    return $sentencia->execute([$id]);    
+}
+
+function save_quiz($usuario){
+    global $base_de_datos;
+    $todo_correcto = true;    
+    $sentencia = $base_de_datos->prepare('UPDATE usuarios SET q_1 = ?, q_2 = ?, q_3 = ?, q_4 = ?, q_5 = ? WHERE id = ?');    
+    $todo_correcto = $todo_correcto && $sentencia->execute([$usuario->q_1,$usuario->q_2,$usuario->q_3,$usuario->q_4,$usuario->q_5,$usuario->id]);        
+    return $todo_correcto;
+}
+
 ?>

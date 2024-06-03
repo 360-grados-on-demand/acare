@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>IFrame ACARE</title>
+	<style type="text/css">
+		.container {
+		  position: relative;
+		  overflow: hidden;
+		  width: 100%;
+		  padding-top: 56.25%; /* 16:9 Aspect Ratio (divide 9 by 16 = 0.5625) */
+		}
+
+		/* Then style the iframe to fit in the container div with full height and width */
+		.responsive-iframe {
+		  position: absolute;
+		  top: 0;
+		  left: 0;
+		  bottom: 0;
+		  right: 0;
+		  width: 100%;
+		  height: 100%;
+		}
+
+		@media all and (max-width: 767px){
+			.container {
+				padding-top:150%;
+			}
+		}
+
+		@media all and (max-width: 380px){
+			.container {
+				padding-top:200%;
+			}
+		}
+
+	</style>
+</head>
+<body>
+	<div class="container">
+	  <iframe class="responsive-iframe" src="https://acare.360grados-ondemand.com/"></iframe>
+	</div>
+</body>
+</html>
