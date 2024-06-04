@@ -107,3 +107,7 @@ a.btn{
 	opacity: 1;
 	transition: opacity .5s ease-out;
 }
+
+.mr-3{
+	margin-right:5px;
+}

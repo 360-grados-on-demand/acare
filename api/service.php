@@ -51,12 +51,18 @@ function comprobar_datos($nombre, $pass)
 
 }
 
-function save_view($id, $view)
+function save_view($id, $view, $playList)
 {
     global $base_de_datos;
     $id = strtolower($id);
-    $sentencia = $base_de_datos->prepare('UPDATE usuarios SET v_'.$view.' = true WHERE id = ?');    
-    return $sentencia->execute([$id]);    
+    if($playList == 'false'){
+        $sentencia = $base_de_datos->prepare('UPDATE usuarios SET v_'.$view.' = true WHERE id = ?');    
+        return $sentencia->execute([$id]);        
+    }else{
+        $sentencia = $base_de_datos->prepare('UPDATE usuarios SET v_'.$view.' = true, playList = ? WHERE id = ?');    
+        return $sentencia->execute([$playList, $id]);        
+    }
+    
 }
 
 function save_quiz($usuario){

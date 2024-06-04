@@ -21,6 +21,20 @@
         3 : "30 de julio", 
         4 : "20 agosto",
       }
+      vm.playList = [];
+
+      vm.toggleSelection = function(name) {
+        var idx = vm.playList.indexOf(name);
+
+        // Is currently selected
+        if (idx > -1) {
+          vm.playList.splice(idx, 1);
+        }else {
+          vm.playList.push(name);
+        }
+      };
+
+
       vm.logout = function(){
         vm.delete_cookie("acareuser");
         vm.current_user = null;
@@ -30,7 +44,7 @@
         if(vm.validaCampoLogin()){                    
           $http({
             method : 'POST',
-            url    : 'https://acare.360grados-ondemand.com/api/iniciar_sesion.php',
+            url    : 'https://acare-360grados.netlify.app/api/iniciar_sesion.php',
             data : $.param({              
               nombre: vm.user.usuario,
               pass: vm.user.pass,
@@ -47,6 +61,10 @@
               }
               vm.current_user = res.data;
               vm.step = 3;
+              console.log(vm.current_user);
+              if(vm.current_user.playList !== null){                
+                vm.playList = vm.current_user.playList.split(",");
+              }
               vm.setCookie("acareuser", vm.current_user, 365);
             } else{
               vm.error = {
@@ -72,6 +90,10 @@
         if (acareuser != null) {
           vm.current_user = acareuser;
           vm.step = 3;
+          console.log(vm.current_user);
+          if(vm.current_user.playList !== null){                
+            vm.playList = vm.current_user.playList.split(",");
+          }          
         }           
       }
 
@@ -111,7 +133,7 @@
         if(vm.validaCampo()){          
           $http({
             method : 'POST',
-            url    : 'https://acare.360grados-ondemand.com/api/crear_usuario.php',
+            url    : 'https://acare-360grados.netlify.app/api/crear_usuario.php',
             data : $.param({              
               nombre: vm.registroFields.usuario,
               pass: vm.registroFields.pass,
@@ -154,7 +176,7 @@
       vm.quiz1 = function(){
         $http({
           method : 'POST',
-          url    : 'https://acare.360grados-ondemand.com/api/save_quiz.php',
+          url    : 'https://acare-360grados.netlify.app/api/save_quiz.php',
           data : $.param({user:JSON.stringify(vm.current_user)}),
           headers: {
             'Content-Type' : 'application/x-www-form-urlencoded; charset=UTF-8'
@@ -196,13 +218,14 @@
         vm.level = l;        
       }
 
-      vm.saveView = function(v){
+      vm.saveView = function(v){        
         $http({
           method : 'POST',
-          url    : 'https://acare.360grados-ondemand.com/api/save_view.php',
+          url    : 'https://acare-360grados.netlify.app/api/save_view.php',
           data : $.param({              
             id: vm.current_user.id,
-            view : v            
+            view : v,
+            playList : v == 4 ? vm.playList.toString() : false,
           }),
           headers: {
             'Content-Type' : 'application/x-www-form-urlencoded; charset=UTF-8'
@@ -214,6 +237,7 @@
               error : false
             }
             vm.current_user["v_"+v] = true;
+            vm.current_user["playList"] = vm.playList.toString();
             vm.setCookie("acareuser", vm.current_user, 365);
             vm.subLevel = 0;            
           } else{

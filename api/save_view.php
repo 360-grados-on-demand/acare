@@ -9,7 +9,8 @@ if ( !defined( "RAIZ" ) )
 }
 $id = $_POST["id"];
 $view = $_POST["view"];
+$playList = $_POST["playList"];
 require_once RAIZ . "/api/db.php";
 require_once RAIZ . "/api/service.php";
-$result = save_view( $id, $view);
+$result = save_view( $id, $view, $playList);
 die(json_encode($result));	

@@ -6837,18 +6837,88 @@
 								<h2 class="text-blue uppercase"><span>Nivel 1.</span> Atención primaria</h2>
 								<h1 class="text-blue2 uppercase">Las diez mejores canciones para practicar una cirugía </h1>							
 								<p>Spotify hizo una encuesta a <b class="text-blue">700 cirujanos</b> y otros profesionales de la salud de <b class="text-blue">más de 50 países</b> para averiguar cuáles son las canciones favoritas en el quirófano.</p>
-								<p>Escucha la <i>playlist</i> y dinos qué opinas.</p>
+								<p>¿Cuáles son tus favoritas?</p>
 								<ul>
-									<li><i>“Rock You Like a Hurricane”</i>, <span class="text-blue">Scorpions</span></li>
-									<li><i>“Sweet Child O’ Mine”</i>, <span class="text-blue">Guns N’ Roses</span></li>
-									<li><i>“Just What The Doctor Ordered”</i>, <span class="text-blue">Ted Nugent</span></li>
-									<li><i>“Break On Through (To the Other Side)”</i>, <span class="text-blue">The Doors</span></li>
-									<li><i>“Paint It Black”</i>, <span class="text-blue">The Rolling Stones</span></li>
-									<li><i>“Whole Lotta Love”</i>, <span class="text-blue">Led Zeppelin</span></li>
-									<li><i>“We Will Rock You”</i>, <span class="text-blue">Queen</span></li>
-									<li><i>“Back in Black”</i>, <span class="text-blue">AC/DC</span></li>
-									<li><i>“Cocaine”</i>, <span class="text-blue">Eric Clapton</span></li>
-									<li><i>“The Wind Cries Mary”</i>, <span class="text-blue">Jimi Hendrix</span></li>
+									<li><label><input
+										    type="checkbox"
+										    name="playlist[]"
+										    value="Rock You Like a Hurricane"
+										    ng-checked="vm.playList.indexOf('Rock You Like a Hurricane') > -1"
+										    ng-click="vm.toggleSelection('Rock You Like a Hurricane')"
+										  > <i>“Rock You Like a Hurricane”</i>, <span class="text-blue">Scorpions</span></label>
+									</li>
+									<li><label><input
+										    type="checkbox"
+										    name="playlist[]"
+										    value="Sweet Child O’ Mine"
+										    ng-checked="vm.playList.indexOf('Sweet Child O’ Mine') > -1"
+										    ng-click="vm.toggleSelection('Sweet Child O’ Mine')"
+										  ><i>“Sweet Child O’ Mine”</i>, <span class="text-blue">Guns N’ Roses</span></label>
+									</li>
+									<li><label><input
+										    type="checkbox"
+										    name="playlist[]"
+										    value="Just What The Doctor Ordered"
+										    ng-checked="vm.playList.indexOf('Just What The Doctor Ordered') > -1"
+										    ng-click="vm.toggleSelection('Just What The Doctor Ordered')"
+										  ><i>“Just What The Doctor Ordered”</i>, <span class="text-blue">Ted Nugent</span></label>
+									</li>
+									<li><label><input
+										    type="checkbox"
+										    name="playlist[]"
+										    value="Break On Through (To the Other Side)"
+										    ng-checked="vm.playList.indexOf('Break On Through (To the Other Side)') > -1"
+										    ng-click="vm.toggleSelection('Break On Through (To the Other Side)')"
+										  ><i>“Break On Through (To the Other Side)”</i>, <span class="text-blue">The Doors</span></label>
+									</li>
+									<li><label><input
+										    type="checkbox"
+										    name="playlist[]"
+										    value="Paint It Black"
+										    ng-checked="vm.playList.indexOf('Paint It Black') > -1"
+										    ng-click="vm.toggleSelection('Paint It Black')"
+										  ><i>“Paint It Black”</i>, <span class="text-blue">The Rolling Stones</span></label>
+									</li>
+									<li><label><input
+										    type="checkbox"
+										    name="playlist[]"
+										    value="Whole Lotta Love"
+										    ng-checked="vm.playList.indexOf('Whole Lotta Love') > -1"
+										    ng-click="vm.toggleSelection('Whole Lotta Love')"
+										  ><i>“Whole Lotta Love”</i>, <span class="text-blue">Led Zeppelin</span></label>
+									</li>
+									<li><label><input
+										    type="checkbox"
+										    name="playlist[]"
+										    value="We Will Rock You"
+										    ng-checked="vm.playList.indexOf('We Will Rock You') > -1"
+										    ng-click="vm.toggleSelection('We Will Rock You')"
+										  ><i>“We Will Rock You”</i>, <span class="text-blue">Queen</span></label>
+									</li>
+									<li><label><input
+										    type="checkbox"
+										    name="playlist[]"
+										    value="Back in Black"
+										    ng-checked="vm.playList.indexOf('Back in Black') > -1"
+										    ng-click="vm.toggleSelection('Back in Black')"
+										  ><i>“Back in Black”</i>, <span class="text-blue">AC/DC</span></label>
+									</li>
+									<li><label><input
+										    type="checkbox"
+										    name="playlist[]"
+										    value="Cocaine"
+										    ng-checked="vm.playList.indexOf('Cocaine') > -1"
+										    ng-click="vm.toggleSelection('Cocaine')"
+										  ><i>“Cocaine”</i>, <span class="text-blue">Eric Clapton</span></label>
+									</li>
+									<li><label><input
+										    type="checkbox"
+										    name="playlist[]"
+										    value="The Wind Cries Mary"
+										    ng-checked="vm.playList.indexOf('The Wind Cries Mary') > -1"
+										    ng-click="vm.toggleSelection('The Wind Cries Mary')"
+										  ><i>“The Wind Cries Mary”</i>, <span class="text-blue">Jimi Hendrix</span></label>
+									</li>
 								</ul>
 								<p class="small-text">
 									<b>Referencia</b><br/>
