@@ -31,6 +31,10 @@ body{
 	justify-content: center;
 }
 
+ol li{
+  margin-bottom:10px;
+}
+
 p, ul, ol{
 	font-family: Georgia, serif;
 }
@@ -67,6 +71,11 @@ p b{
 	position: relative;
 }
 
+.hospitalContainer{
+  margin-top: auto;
+  padding-bottom: 80px;
+}
+
 .acare-container .current-level{  
   width:100%;
   height:auto;
@@ -100,9 +109,8 @@ p b{
   width: 100vw;
   height: 100vh;
   background: rgba(0, 0, 0, .6);
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  padding-top:50px;
+  overflow: auto;  
 }
 
 .cls-1 {
@@ -1576,8 +1584,10 @@ p b{
         fill: #6bc3c4;
       }
 
-      .level1 .cls-24 {
-        fill: #005174;
+      .level1 .cls-24 {        
+        stroke: #FFD600;
+        stroke-width: 2px;        
+        stroke-linejoin: round;
       }
 
       .level1 .cls-25 {
@@ -1610,17 +1620,26 @@ p b{
 
       .level1 .cls-32 {
         fill: #2ea944;
-      } 
+      }
 
-.opt-level:hover{
+.opt-level{
   cursor: pointer;
-  transition: all .5s ease-out;
+  -webkit-filter: drop-shadow(0px 0px 5px #FFD600);
+  filter: drop-shadow(0px 0px 5px #FFD600);
+  animation: pulse 1.5s infinite;  
 }
+
+.opt-level.visited{
+  -webkit-filter: none;
+  filter: none;
+  animation: none;
+}
+
+
 .opt-level:hover .cls-24, .opt-level.visited .cls-24{    
-  fill:#009D00;    
-  stroke-width: 5px;
-  -webkit-filter: drop-shadow( 0px 0px 5px #009D00);
-  filter: drop-shadow( 0px 0px 5px #009D00);
+  /*-webkit-filter: drop-shadow( 0px 0px 5px #FFD600);
+  filter: drop-shadow( 0px 0px 5px #FFD600);
+  fill:#FFD600;      */
 }
 
 .current-level .content h2{
@@ -1680,10 +1699,8 @@ p b{
   }
 
 
-  .acare-container .current-level{
-    max-height: 86vh;
-    overflow: auto;
-    padding: 5px;
+  .acare-container .current-level{        
+    padding: 15px;
   }
 
   .acare-container .current-level.instrucciones{
@@ -1701,4 +1718,24 @@ p b{
     max-height: 99vh;
   }
 
+  .level1 .cls-24 {            
+    stroke-width: 4px;     
+  }
+
+}
+
+
+@keyframes pulse {
+    0% {
+        -webkit-filter: drop-shadow(0px 0px 5px #FFD600);
+        filter: drop-shadow(0px 0px 5px #FFD600);
+    }
+    50% {
+        -webkit-filter: drop-shadow(0px 0px 15px #FFD600);
+        filter: drop-shadow(0px 0px 15px #FFD600);
+    }
+    100% {
+        -webkit-filter: drop-shadow(0px 0px 5px #FFD600);
+        filter: drop-shadow(0px 0px 5px #FFD600);
+    }
 }

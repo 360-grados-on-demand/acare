@@ -1,3 +1,8 @@
+audio{
+	visibility: hidden;
+	opacity: 0;
+}
+
 .text-center{
 	text-align: center;
 }
@@ -29,7 +34,7 @@
 }
 
 .text-red{
-	color:red;
+	color:#ff575f;
 }
 
 .text-black{
@@ -57,17 +62,36 @@ a.btn{
 .user-actions {
     position: absolute;
     right: 15px;
-    top: 15px;
+    top: 23px;
     display: flex;
     align-items: center;
     gap: 10px;
 }
 
-.help{
-	cursor: pointer;
+.options{
 	position: absolute;
-    right: 15px;
-    bottom: 37px;
+    left: 15px;
+    top: 15px; 
+    display: flex;
+    align-items: center;   
+    gap: 10px;
+}
+
+.audio button{
+	background: none;
+	border:none;	
+	width:auto;
+    height:40px;    
+    position: relative;
+    padding-right:50px;
+}
+
+.audio button svg{
+	width:40px;
+	height:40px;
+	position: absolute;
+	top:0px;
+	right:0px;
 }
 
 .small-text, .small-text *{
@@ -110,4 +134,18 @@ a.btn{
 
 .mr-3{
 	margin-right:5px;
+}
+
+.user-login{
+	padding:15px 0px;
+	border-top:1px var(--gray-color) solid;
+	border-bottom:1px var(--gray-color) solid;
+	margin:15px -3rem;
+
+}
+
+@media all and (max-width: 767px){
+	.audio button{		
+	    padding-right:33px;
+	}
 }

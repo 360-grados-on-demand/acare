@@ -22,6 +22,20 @@
         4 : "20 agosto",
       }
       vm.playList = [];
+      vm.audio = false;   
+      vm.response = false;   
+      vm.p_user = false;
+
+      vm.sound = function(){                
+        var v = document.getElementsByTagName("audio")[0];
+        if (!vm.audio) {
+         v.play();           
+         vm.audio = true;
+        } else {
+         v.pause();           
+         vm.audio = false;
+        }         
+      }
 
       vm.toggleSelection = function(name) {
         var idx = vm.playList.indexOf(name);
@@ -39,12 +53,15 @@
         vm.delete_cookie("acareuser");
         vm.current_user = null;
         vm.step = 1;
+        var v = document.getElementsByTagName("audio")[0];
+        vm.audio = false;
+        v.pause();
       }
       vm.login = function(){                
         if(vm.validaCampoLogin()){                    
           $http({
             method : 'POST',
-            url    : 'https://acare-360grados.netlify.app/api/iniciar_sesion.php',
+            url    : 'http://localhost/acare/api/iniciar_sesion.php',
             data : $.param({              
               nombre: vm.user.usuario,
               pass: vm.user.pass,
@@ -61,7 +78,9 @@
               }
               vm.current_user = res.data;
               vm.step = 3;
-              console.log(vm.current_user);
+              if(vm.current_user.q_1 !== null && vm.current_user.q_2 !== null && vm.current_user.q_3 !== null && vm.current_user.q_4 !== null && vm.current_user.q_5 !== null){
+                vm.response = true;  
+              }              
               if(vm.current_user.playList !== null){                
                 vm.playList = vm.current_user.playList.split(",");
               }
@@ -89,19 +108,18 @@
         let acareuser = vm.getCookie("acareuser");
         if (acareuser != null) {
           vm.current_user = acareuser;
-          vm.step = 3;
-          console.log(vm.current_user);
+          vm.step = 3;          
           if(vm.current_user.playList !== null){                
             vm.playList = vm.current_user.playList.split(",");
           }          
-        }           
+        }
       }
 
       vm.validaParams = function(){
         var urlParams = new URLSearchParams(window.location.search);
-        var p_user = (urlParams.get('user') || false);
-        if(p_user !== false){
-          vm.registroFields.usuario = p_user;
+        vm.p_user = (urlParams.get('user') || false);
+        if(vm.p_user !== false){
+          vm.registroFields.usuario = vm.p_user;
           vm.step = 2;
         }else{
           vm.step = 1;
@@ -133,7 +151,7 @@
         if(vm.validaCampo()){          
           $http({
             method : 'POST',
-            url    : 'https://acare-360grados.netlify.app/api/crear_usuario.php',
+            url    : 'http://localhost/acare/api/crear_usuario.php',
             data : $.param({              
               nombre: vm.registroFields.usuario,
               pass: vm.registroFields.pass,
@@ -176,7 +194,7 @@
       vm.quiz1 = function(){
         $http({
           method : 'POST',
-          url    : 'https://acare-360grados.netlify.app/api/save_quiz.php',
+          url    : 'http://localhost/acare/api/save_quiz.php',
           data : $.param({user:JSON.stringify(vm.current_user)}),
           headers: {
             'Content-Type' : 'application/x-www-form-urlencoded; charset=UTF-8'
@@ -200,6 +218,9 @@
               vm.aciertos_1++;
             }
             vm.setCookie("acareuser", vm.current_user, 365);
+            if(vm.current_user.q_1 !== null && vm.current_user.q_2 !== null && vm.current_user.q_3 !== null && vm.current_user.q_4 !== null && vm.current_user.q_5 !== null){
+              vm.response = true;  
+            } 
             vm.subLevel = 7;  
           } else{
             vm.error = {
@@ -221,7 +242,7 @@
       vm.saveView = function(v){        
         $http({
           method : 'POST',
-          url    : 'https://acare-360grados.netlify.app/api/save_view.php',
+          url    : 'http://localhost/acare/api/save_view.php',
           data : $.param({              
             id: vm.current_user.id,
             view : v,
@@ -267,7 +288,7 @@
 
       vm.delete_cookie = function(name) {
         document.cookie = [name, '=; expires=Thu, 01-Jan-1970 00:00:01 GMT; path=/; domain=.', window.location.host.toString()].join('');
-      }
+      }      
 
     })
 })();
